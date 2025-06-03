@@ -13,44 +13,40 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Anti-bot : champ honeypot
     const honeypot = form.querySelector('input[name="bot-field"]');
     if (honeypot && honeypot.value !== "") {
       console.warn("Formulaire bloqué (spam détecté)");
       return;
     }
 
-    // Envoi via EmailJS avec clé publique
-    emailjs
-      .sendForm(
-        "service_c8lnq97",
-        "template_4vpm8yn",
-        form,
-        "2-lX1haMopJEX4C8J"
-      )
-      .then(
-        () => {
-          showMessage("✅ Message envoyé avec succès !");
-          form.reset();
-          grecaptcha.reset(); // reset Google reCAPTCHA
-        },
-        (error) => {
-          console.error("EmailJS error:", error);
-          showMessage("❌ Une erreur est survenue.", "error");
-        }
-      );
+    const token = grecaptcha.getResponse(); // ✅ ici !
+    if (!token) {
+      alert("Merci de valider le captcha.");
+      return;
+    }
+
+    // Ajoute le token comme champ caché si nécessaire
+    let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
+    if (!captchaInput) {
+      captchaInput = document.createElement("input");
+      captchaInput.type = "hidden";
+      captchaInput.name = "g-recaptcha-response";
+      form.appendChild(captchaInput);
+    }
+    captchaInput.value = token;
+
+    // Envoi via EmailJS
+    emailjs.sendForm("service_c8lnq97", "template_4vpm8yn", form, "2-lX1haMopJEX4C8J")
+      .then(() => {
+        showMessage("✅ Message envoyé avec succès !");
+        form.reset();
+        grecaptcha.reset(); // ✅ ici aussi !
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        showMessage("❌ Une erreur est survenue.", "error");
+      });
   });
-});
-
-//section scroll
-
-window.addEventListener("scroll", function () {
-  const topBtn = document.querySelector(".back-to-top");
-  if (window.scrollY > 300) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
-  }
 });
 
 // défilement fluide
