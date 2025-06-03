@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Vérification Captcha
-    const token = grecaptcha.getResponse();
     if (!token) {
       alert("Merci de valider le captcha.");
       return;
