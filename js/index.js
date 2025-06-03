@@ -1,10 +1,9 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
   const messageBox = document.createElement("div");
   messageBox.id = "form-message";
   messageBox.className = "message-box";
-  form.appendChild(messageBox); // Ajoute le messageBox si pas présent
+  form.appendChild(messageBox);
 
   function showMessage(message, type = "success") {
     messageBox.textContent = message;
@@ -21,20 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Vérification Captcha
-    if (!token) {
-      alert("Merci de valider le captcha.");
-      return;
-    }
-
-    let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
-    if (!captchaInput) {
-      captchaInput = document.createElement("input");
-      captchaInput.type = "hidden";
-      captchaInput.name = "g-recaptcha-response";
-      form.appendChild(captchaInput);
-    }
-    captchaInput.value = token;
     // Envoi via EmailJS avec clé publique
     emailjs
       .sendForm(
@@ -47,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         () => {
           showMessage("✅ Message envoyé avec succès !");
           form.reset();
-          hcaptcha.reset();
+          grecaptcha.reset(); // reset Google reCAPTCHA
         },
         (error) => {
           console.error("EmailJS error:", error);
@@ -56,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
   });
 });
+
 //section scroll
 
 window.addEventListener("scroll", function () {
