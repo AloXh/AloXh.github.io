@@ -5,19 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
  const messageBox = document.getElementById("messageBox");
 
 
-  function showMessage(message, type = "success") {
-    messageBox.textContent = message;
-    messageBox.className = `message-box ${type}`;
-  }
-  let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
-if (!captchaInput) {
-  captchaInput = document.createElement("input");
-  captchaInput.type = "hidden";
-  captchaInput.name = "g-recaptcha-response";
-  form.appendChild(captchaInput);
-}
-captchaInput.value = token;
-
   // Ajoute le champ g-recaptcha-response dès le chargement
   let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
   if (!captchaInput) {
@@ -26,16 +13,7 @@ captchaInput.value = token;
     captchaInput.name = "g-recaptcha-response";
     form.appendChild(captchaInput);
   }
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    // Vérifie le champ "honeypot" pour bloquer les bots
-    const honeypot = form.querySelector('input[name="bot-field"]');
-    if (honeypot && honeypot.value !== "") {
-      console.warn("Formulaire bloqué (spam détecté)");
-      return;
-    }
+      }
 
     // Récupère le token reCAPTCHA
     const token = grecaptcha.getResponse();
@@ -46,6 +24,15 @@ captchaInput.value = token;
 
     // Ajoute la valeur du token dans le champ caché
     captchaInput.value = token;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Vérifie le champ "honeypot" pour bloquer les bots
+    const honeypot = form.querySelector('input[name="bot-field"]');
+    if (honeypot && honeypot.value !== "") {
+      console.warn("Formulaire bloqué (spam détecté)");
+      return;
 
     // Envoi via EmailJS
     emailjs.sendForm("service_c8lnq97", "template_4vpm8yn", form, "2-lX1haMopJEX4C8J")
