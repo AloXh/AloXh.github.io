@@ -9,6 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     messageBox.textContent = message;
     messageBox.className = `message-box ${type}`;
   }
+  let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
+if (!captchaInput) {
+  captchaInput = document.createElement("input");
+  captchaInput.type = "hidden";
+  captchaInput.name = "g-recaptcha-response";
+  form.appendChild(captchaInput);
+}
+captchaInput.value = token;
 
   // Ajoute le champ g-recaptcha-response dès le chargement
   let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
