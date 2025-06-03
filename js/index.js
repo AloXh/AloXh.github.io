@@ -1,38 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
-  const messageBox = document.createElement("div");
-  messageBox.id = "form-message";
-  messageBox.className = "message-box";
-  form.appendChild(messageBox);
+
+  // Ajoute la boîte de message une fois pour toutes
+ const messageBox = document.getElementById("messageBox");
+
 
   function showMessage(message, type = "success") {
     messageBox.textContent = message;
     messageBox.className = `message-box ${type}`;
   }
 
+  // Ajoute le champ g-recaptcha-response dès le chargement
+  let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
+  if (!captchaInput) {
+    captchaInput = document.createElement("input");
+    captchaInput.type = "hidden";
+    captchaInput.name = "g-recaptcha-response";
+    form.appendChild(captchaInput);
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    // Vérifie le champ "honeypot" pour bloquer les bots
     const honeypot = form.querySelector('input[name="bot-field"]');
     if (honeypot && honeypot.value !== "") {
       console.warn("Formulaire bloqué (spam détecté)");
       return;
     }
 
-    const token = grecaptcha.getResponse(); // ✅ ici !
+    // Récupère le token reCAPTCHA
+    const token = grecaptcha.getResponse();
     if (!token) {
       alert("Merci de valider le captcha.");
       return;
     }
 
-    // Ajoute le token comme champ caché si nécessaire
-    let captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
-    if (!captchaInput) {
-      captchaInput = document.createElement("input");
-      captchaInput.type = "hidden";
-      captchaInput.name = "g-recaptcha-response";
-      form.appendChild(captchaInput);
-    }
+    // Ajoute la valeur du token dans le champ caché
     captchaInput.value = token;
 
     // Envoi via EmailJS
@@ -40,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(() => {
         showMessage("✅ Message envoyé avec succès !");
         form.reset();
-        grecaptcha.reset(); // ✅ ici aussi !
+        grecaptcha.reset(); // Réinitialise le captcha pour une nouvelle soumission
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
@@ -48,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
 
 // défilement fluide
 document.addEventListener("DOMContentLoaded", function () {
