@@ -15,16 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
       }
 
-    // Récupère le token reCAPTCHA
-    const token = grecaptcha.getResponse();
-    if (!token) {
-      alert("Merci de valider le captcha.");
-      return;
-    }
-
-    // Ajoute la valeur du token dans le champ caché
-    captchaInput.value = token;
-
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -33,6 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (honeypot && honeypot.value !== "") {
       console.warn("Formulaire bloqué (spam détecté)");
       return;
+       // Récupère le token reCAPTCHA
+    const token = grecaptcha.getResponse();
+    if (!token) {
+      alert("Merci de valider le captcha.");
+      return;
+    }
+
+    // Ajoute la valeur du token dans le champ caché
+    captchaInput.value = token;
+      console.log(token);
 
     // Envoi via EmailJS
     emailjs.sendForm("service_c8lnq97", "template_4vpm8yn", form, "2-lX1haMopJEX4C8J")
