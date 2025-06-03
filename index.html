@@ -169,34 +169,46 @@ prévention et de préservation de l’autonomie à domicile.
 
       <!-- section Devis -->
       <section class="form-section section autoShow" id="form">
-        <h2>Demandez un devis</h2>
-        <form id="contact-form">
-          <label for="nom">Nom :</label>
-          <input type="text" id="nom" name="nom" required />
+  <h2>Demandez un devis</h2>
+  <form id="contact-form">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required />
 
-          <label for="email">Email :</label>
-          <input type="email" id="email" name="email" required />
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required />
 
-          <label for="telephone">Téléphone :</label>
-          <input type="tel" id="telephone" name="telephone" required />
+    <label for="telephone">Téléphone :</label>
+    <input type="tel" id="telephone" name="telephone" required />
 
-          <label for="service">Service souhaité :</label>
-          <select id="service" name="service" required>
-            <option value="">-- Choisir un service --</option>
-            <option value="Ménage à domicile">Ménage à domicile</option>
-            <option value="Jardinage et entretien extérieur">Jardinage et entretien extérieur</option>
-            <option value="location saisonnière">Location saisonnière</option>
-            <option value="Aide à la personne">Aide à la personne</option>
-            <option value="Petit bricolage">Petit bricolage</option>
-          </select>
+    <label for="service">Service souhaité :</label>
+    <select id="service" name="service" required>
+      <option value="">-- Choisir un service --</option>
+      <option value="Ménage à domicile">Ménage à domicile</option>
+      <option value="Jardinage et entretien extérieur">Jardinage et entretien extérieur</option>
+      <option value="location saisonnière">Location saisonnière</option>
+      <option value="Aide à la personne">Aide à la personne</option>
+      <option value="Petit bricolage">Petit bricolage</option>
+    </select>
 
-          <label for="message">Message :</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          <input type="text" name="bot-field" style="display: none;" />
-          <div class="g-recaptcha" data-sitekey="6LecVlQrAAAAAOiWH9XrQSpO7CDGIjf1Ohu9R2A0"></div>  
-          <button type="submit">Envoyer la demande</button>
-        </form>
-      </section>
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <!-- Honeypot pour filtrer les bots -->
+    <input type="text" name="bot-field" style="display: none;" />
+
+    <!-- Champ caché pour reCAPTCHA (important pour EmailJS) -->
+    <input type="hidden" name="g-recaptcha-response" />
+
+    <!-- Widget reCAPTCHA -->
+    <div class="g-recaptcha" data-sitekey="6LecVlQrAAAAAOiWH9XrQSpO7CDGIjf1Ohu9R2A0"></div>
+
+    <button type="submit">Envoyer la demande</button>
+
+    <!-- Message de retour -->
+    <div id="messageBox" class="message-box" style="margin-top: 1em;"></div>
+  </form>
+</section>
+
       <div id="messageBox" class="message-box" style="margin-top: 1em;"></div>
     </main>
     <footer>
