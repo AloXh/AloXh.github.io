@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CE LI AUTONOMIE À DOMICILE</title>
+    <link rel="stylesheet" href="css/contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <script defer src="js/pg-contact.js"></script>
+  </head>
+
+  <body>
+    
+    <!-- Section HAUT DE LA PAGE -->
+    <section class="top-page">
+      <header class="header">
+        <img src="images/LOGO.png" alt="Logo Célia Dom" id="logo" />
+        <ul class="nav">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html">Faire un devis</a></li>
+          <li><a href="qsm.html">Qui nous sommes</a></li>
+          <li><a href="contact.html">Nous contacter</a></li>
+          <li><a href="adhere.html">Adhérer</a></li>
+        </ul>
+      </header>
+      </section>
+
+      <section class="contact-container">
+        <!-- Colonne gauche : Réseaux + Carte -->
+        <div class="left-column">
+          <!-- Section Réseaux -->
+          <aside class="social-section">
+            <h3>Nos Réseaux</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+              <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+              <a href="#"><i class="fa-brands fa-whatsapp fa-spin fa-2x"></i></a>
+            </div>
+          </aside>
+      
+          <!-- Carte Google Maps -->
+          <div class="iframe-wrapper">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.1120558926696!2d55.645500609239456!3d-20.948014670731617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217887c08cb96d9b%3A0xf40d9f14de412e01!2s1357%20Av.%20%C3%8Ele-de-France%2C%20Saint-Andr%C3%A9%2097440%2C%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1748284212064!5m2!1sfr!2sfr"
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      
+        <!-- Colonne droite : Contact -->
+        <div class="right-column">
+          <section class="contact-section" id="contact">
+            <h3 class="contact-service">Contactez-nous</h3>
+            <p class="p1">Vous recherchez un service de ménage, de jardinage, de bricolage ou d’aide à la personne ?<br />
+              N'hésitez pas à nous contacter. Notre équipe est à votre écoute pour répondre à vos besoins.</p>
+            <ul>
+              <li><strong>📍 Adresse :</strong> <a href="https://g.co/kgs/oeTWY5B">1357 Avenue Île-de-France, 97440 Saint-André</a></li>
+        <li><strong>📱 Téléphone :</strong> 0692 06 24 98</li>
+        <li><strong>📧 Email :</strong> <a href="mailto:contact@celiadom.re">contact@celiadom.re</a></li>
+        <li><strong>⏰ Horaires :</strong> Du lundi au vendredi : 8h30 – 12h00 / 13h00 – 15h00</li>
+            </ul>
+            <a href="#form"><button>Prendre rendez-vous</button></a>
+          </section>
+        </div>
+      </section>
+      
+      
+      </section>
+        <section class="form-section section autoShow" id="form">
+        <h2>FORMULAIRE DE CONTACT</h2>
+        <p class="p1">
+          Remplissez ce formulaire et nous vous recontacterons dans les plus brefs délais.
+        </p>
+        <form id="contact-form">
+          <label for="nom">Nom complet :</label>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+      
+          <label for="email">Adresse email :</label>
+          <input type="email" id="email" name="email" placeholder="exemple@email.com" required />
+      
+          <label for="telephone">Numéro de téléphone :</label>
+          <input type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" required />
+      
+          <label for="message">Votre message :</label>
+          <textarea id="message" name="message" rows="4" placeholder="Décrivez votre besoin..." required></textarea>
+          <div class="h-captcha" data-sitekey="c62667a0-744a-4ea0-9fb0-8f06942c2e84"></div> 
+          <button type="submit"> Envoyer la demande</button>
+        </form>
+      </section>
+      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+      <!-- EmailJS -->
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+      
+    
+      <footer>
+        <div class="footer-container">
+          <div class="footer-logo">
+            <img  
+              src="images/LOGO.png"
+              alt="Logo de Célia Dom"
+              id="footer-logo"
+              width="80"
+              height="80"
+            />
+          </div>
+          <div class="footer-links">
+            <p>&copy; 2025 Célia Dom - Tous droits réservés</p>
+            <ul>
+          <li><a href="mention-lg.html">Mentions légales</a></li>
+          <li><a href="plt.html">Politique de confidentialité</a></li>
+          <li><a href="cdu.html">Conditions d'utilisation</a></li>
+            </ul>
+          </div>
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="qsm.html">À propos</a></li>
+              <li><a href="index.html">Services</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="footer-contact">
+            <p>
+              Adresse :
+              <a href="https://g.co/kgs/oeTWY5B">1357 Avenue Île-de-France, 97440 Saint-André</a>
+            </p>
+            <p>Téléphone : <a href="tel:+2626062498">0692 06 24 98</a></p>
+            <p>Email : <a href="mailto:contact@celiadom.fr">contact@celiadom.fr</a></p>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/61573083025584&ved=2ahUKEwjGl9DKtdCNAxXWAfsDHXsKAcQQFnoECBoQAQ&usg=AOvVaw3KJ_p-DJSG6mbIJZ6_ePji"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://www.instagram.com/celiadomsad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp fa-spin fa-2x"></i></a>
+          </div>
+        </div>
+      </footer>
+  
+  </body>
+</html>

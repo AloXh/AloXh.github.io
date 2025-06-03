@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  scroll-behavior: smooth;
+}
+
+/* Corps */
+:root {
+  --primary-color: #374151;
+  --secondary-color: #facc15;
+  --accent-color: #3c8c3f;
+  --accent-colorb: #275b29;
+  --accent-color2: #f26698;
+  --accent-color2b: #b84c72;
+  --text-color: #2b2b2b;
+  --bg-color: #ffffff;
+  --neutral-white: #ffffff;
+  --neutral-gray: #e4e7ec;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  font-weight: 300;
+  font-size: larger;
+  background-color: var(--neutral-white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#logo {
+  max-width: 130px;
+  height: auto;
+  display: block;
+}
+/* navigation */
+.nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  font-size: 18px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.nav a {
+  cursor: pointer;
+  position: relative;
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--accent-color);
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}

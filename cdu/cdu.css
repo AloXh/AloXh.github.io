@@ -1,0 +1,202 @@
+
+/* Fichier CSS pour autre Célia Dom */
+/* Font-family */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    scroll-behavior: smooth;
+}
+
+/* Corps */
+:root {
+    --primary-color: #374151;
+    --secondary-color: #facc15;
+    --secondary-colorb: #f7d26dc4;
+    --accent-color: #3c8c3f;
+    --roseclair: #fef1f6;
+    --vertclair: #f0f9f0;
+    --accent-color2: #f26698;
+    --text-color: #2b2b2b;
+    --bg-color: #ffffff;
+    --neutral-white: #ffffff;
+    --neutral-gray: #e4e7ec;
+    --bleu: #00BCD4;
+    --bleuclair: #E0F7FA;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: var(--neutral-white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#logo {
+    max-width: 130px;
+    height: auto;
+    display: block;
+}
+
+.top-page {
+    font-weight: 300;
+    font-size: larger;
+    background-color: var(--roseclair);
+}
+
+/* NAVIGATION */
+.nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    font-size: 18px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.nav a {
+    cursor: pointer;
+    position: relative;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: var(--accent-color);
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--vertclair);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* Changement pour une colonne sur mobile */
+    align-items: center;
+}
+
+.footer-logo {
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    margin: 1rem 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    /* Centrer les liens */
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-nav {
+    margin: 1rem 0;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    /* Alignement horizontal */
+    justify-content: center;
+    /* Centrer horizontalement */
+}
+
+.footer-nav li {
+    margin: 0 1rem;
+}
+
+.footer-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--accent-color);
+}
+
+.footer-contact {
+    margin: 1rem 0;
+    text-align: center;
+    /* Centrer les informations de contact */
+}
+
+.footer-contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    margin: 0 1rem;
+    /* Espacement entre les icônes */
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color); }
